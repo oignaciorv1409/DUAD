@@ -1,6 +1,6 @@
-def get_valid_grade():
+def get_valid_grade(subject):
         while True:
-                grade = input("Please enter grade between 0 and 100: ")
+                grade = input(f"Please enter {subject} grade between 0 and 100: ")
                 try:
                         convert_to_int = int(grade)
 
@@ -17,10 +17,10 @@ def create_student():
         full_name = input("Please enter full name: ")
         section = input("Please enter section name: ")
 
-        spanish_grade = get_valid_grade()
-        english_grade = get_valid_grade()
-        social_studies_grade = get_valid_grade()
-        science_grade = get_valid_grade()
+        spanish_grade = get_valid_grade("Spanish")
+        english_grade = get_valid_grade("English")
+        social_studies_grade = get_valid_grade("Social Studies")
+        science_grade = get_valid_grade("Science")
 
         
         student_profile = {
@@ -33,3 +33,22 @@ def create_student():
                 }
 
         return student_profile
+
+def add_students (students):
+        while True:
+
+                str_quantity = input("How many students are your adding? ")
+                try: 
+                        students_quantity = int(str_quantity)
+                        if students_quantity > 0:
+                                break
+                        else:
+                                print("Please enter a number greater than 0.")
+                except ValueError:
+                        print("Please enter a valid number.")
+
+        for i in range(students_quantity):
+                new_student = create_student()
+                students.append(new_student)
+
+        print("You have added the students correctly.")

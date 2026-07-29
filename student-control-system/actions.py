@@ -34,6 +34,7 @@ def create_student():
 
         return student_profile
 
+
 def add_students (students):
         while True:
 
@@ -52,3 +53,13 @@ def add_students (students):
                 students.append(new_student)
 
         print("You have added the students correctly.")
+
+
+def show_students(students):
+        if not students:
+                print("There are no students registered.")
+                return
+
+        for show_students_dict in students:
+                print("-" * 40)
+                print(show_students_dict)

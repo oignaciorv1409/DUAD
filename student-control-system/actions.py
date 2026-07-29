@@ -60,6 +60,11 @@ def show_students(students):
                 print("There are no students registered.")
                 return
 
-        for show_students_dict in students:
+        for student in students:
                 print("-" * 40)
-                print(show_students_dict)
+                print(f"Full name: {student['full_name']}")
+                print(f"Section: {student['section']}")
+                print(f"Spanish grade: {student['spanish_grade']}")
+                print(f"English grade: {student['english_grade']}")
+                print(f"Social Studies grade: {student['social_studies_grade']}")
+                print(f"Science grade: {student['science_grade']}")

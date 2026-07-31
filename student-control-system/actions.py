@@ -59,12 +59,26 @@ def show_students(students):
         if not students:
                 print("There are no students registered.")
                 return
+        
+        while True:
+                for student in students:
+                        print("-" * 40)
+                        print(f"full name: {student['full_name']}")
+                        print(f"section: {student['section']}")
+                        print(f"spanish grade: {student['spanish_grade']}")
+                        print(f"english grade: {student['english_grade']}")
+                        print(f"social studies grade: {student['social_studies_grade']}")
+                        print(f"science grade: {student['science_grade']}")
 
-        for student in students:
-                print("-" * 40)
-                print(f"Full name: {student['full_name']}")
-                print(f"Section: {student['section']}")
-                print(f"Spanish grade: {student['spanish_grade']}")
-                print(f"English grade: {student['english_grade']}")
-                print(f"Social Studies grade: {student['social_studies_grade']}")
-                print(f"Science grade: {student['science_grade']}")
+
+def calculate_student_average(student_grade):
+        sum_total = (
+                student_grade["spanish_grade"]
+                + student_grade["english_grade"]
+                + student_grade["social_studies_grade"]
+                + student_grade["science_grade"]
+        )
+
+        average = sum_total / 4
+
+        return average

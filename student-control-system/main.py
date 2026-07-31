@@ -18,7 +18,7 @@ def main ():
                         actions.show_top_3_students(students)
 
                 elif option == "4":
-                        actions.show_general_avg(students)
+                        actions.show_general_average(students)
 
                 elif option == "5":
                         data.export_students_to_csv(students)

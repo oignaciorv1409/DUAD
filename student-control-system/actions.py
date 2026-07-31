@@ -28,7 +28,7 @@ def create_student():
                         "section": section,
                         "spanish_grade": spanish_grade,
                         "english_grade": english_grade,
-                        "social_Studies_grade": social_studies_grade,
+                        "social_studies_grade": social_studies_grade,
                         "science_grade": science_grade,
                 }
 
@@ -60,15 +60,14 @@ def show_students(students):
                 print("There are no students registered.")
                 return
         
-        while True:
-                for student in students:
-                        print("-" * 40)
-                        print(f"full name: {student['full_name']}")
-                        print(f"section: {student['section']}")
-                        print(f"spanish grade: {student['spanish_grade']}")
-                        print(f"english grade: {student['english_grade']}")
-                        print(f"social studies grade: {student['social_studies_grade']}")
-                        print(f"science grade: {student['science_grade']}")
+        for student in students:
+                print("-" * 40)
+                print(f"Full name: {student['full_name']}")
+                print(f"Section: {student['section']}")
+                print(f"Spanish grade: {student['spanish_grade']}")
+                print(f"Snglish grade: {student['english_grade']}")
+                print(f"Social studies grade: {student['social_studies_grade']}")
+                print(f"Science grade: {student['science_grade']}")
 
 
 def calculate_student_average(student_grade):
@@ -82,3 +81,20 @@ def calculate_student_average(student_grade):
         average = sum_total / 4
 
         return average
+
+
+def show_general_average(students):
+        if not students:
+                print("There are no students registered.")
+                return
+
+        general_avg = 0
+
+        for student_grades in students:
+                student_average = calculate_student_average(student_grades)
+
+                general_avg = student_average + general_avg
+
+        general_avg = general_avg / len(students)
+
+        print(F"The general average for all students is {general_avg}.")

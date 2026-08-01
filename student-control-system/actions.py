@@ -98,3 +98,25 @@ def show_general_average(students):
         general_avg = general_avg / len(students)
 
         print(F"The general average for all students is {general_avg}.")
+
+
+def show_top_3_students (students):
+        if not students:
+                print("There are not students registered.")
+                return
+
+        sorted_students = sorted(
+                students,
+                key=calculate_student_average,
+                reverse=True
+        )
+
+        top_3_students = sorted_students[:3]
+
+        for student_avg_grade in top_3_students:
+                top3_student_average = calculate_student_average(student_avg_grade)
+
+                print("-" * 40)
+                print(f"Full name: {student_avg_grade['full_name']}")
+                print(f"Section: {student_avg_grade['section']}")
+                print(f"Average: {top3_student_average}")        

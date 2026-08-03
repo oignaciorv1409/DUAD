@@ -27,13 +27,13 @@ def import_students_from_csv(filepath):
 
                         reader = csv.DictReader(file)
 
-                for row in reader:
-                        row["spanish_grade"] = int(row["spanish_grade"])
-                        row["english_grade"] = int(row["english_grade"])
-                        row["social_studies_grade"] = int(row["social_studies_grade"])
-                        row["science_grade"] = int(row["science_grade"])
+                        for row in reader:
+                                row["spanish_grade"] = int(row["spanish_grade"])
+                                row["english_grade"] = int(row["english_grade"])
+                                row["social_studies_grade"] = int(row["social_studies_grade"])
+                                row["science_grade"] = int(row["science_grade"])
 
-                        imported_students.append(row)
+                                imported_students.append(row)
 
                 print("Students imported successfully.")
 

@@ -20,4 +20,26 @@ def export_students_to_csv(filepath,students):
 
 
 def import_students_from_csv(filepath):
-        
+        imported_students = []
+
+        try:
+                with open(filepath, "r", encoding="utf-8") as file: 
+
+                        reader = csv.DictReader(file)
+
+                for row in reader:
+                        row["spanish_grade"] = int(row["spanish_grade"])
+                        row["english_grade"] = int(row["english_grade"])
+                        row["social_studies_grade"] = int(row["social_studies_grade"])
+                        row["science_grade"] = int(row["science_grade"])
+
+                        imported_students.append(row)
+
+                print("Students imported successfully.")
+
+                return imported_students
+
+        except FileNotFoundError:
+                print("There is no exported file yet.")
+
+                return imported_students

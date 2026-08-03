@@ -24,7 +24,7 @@ def main ():
                         data.export_students_to_csv("students.csv", students)
 
                 elif option == "6":
-                        students = data.import_students_from_csv()
+                        students = data.import_students_from_csv("students.csv")
 
                 elif option == "7":
                         print("Thanks for using student control system!")

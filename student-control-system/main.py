@@ -21,7 +21,7 @@ def main ():
                         actions.show_general_average(students)
 
                 elif option == "5":
-                        data.export_students_to_csv(students)
+                        data.export_students_to_csv("students.csv", students)
 
                 elif option == "6":
                         students = data.import_students_from_csv()

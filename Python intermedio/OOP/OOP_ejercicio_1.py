@@ -8,7 +8,7 @@ class Circle:
 
         def get_area(self):
                 area = math.pi * (self.radius ** 2)
-                print(F"The circle's area is: {area:.2f}")
+                return area
 
 
 circle_1 = Circle(5)
@@ -19,3 +19,7 @@ circle_2.get_area()
 
 circle_3 = Circle(25)
 circle_3.get_area()
+
+print(f"Area of circle 1: {circle_1.get_area()}")
+print(f"Area of circle 2: {circle_2.get_area()}")
+print(f"Area of circle 3: {circle_3.get_area()}")

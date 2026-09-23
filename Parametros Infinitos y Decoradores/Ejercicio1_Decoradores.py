@@ -16,4 +16,3 @@ def sum_number(a, b):
 
 
 sum_number(5,10)
-

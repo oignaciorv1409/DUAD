@@ -55,6 +55,3 @@ except ValueError as error:
 #print(user_2.age) # returns 26 but user 2 hasn't turned 26 years yet. 
 
 
-
-
-

@@ -1,8 +1,8 @@
 # enqueue() regla FIFO (First In, First out)
 
 class Node: # Aquí estamos creando nuestro propio tipo de objeto llamado Node
-        data: str
-        next: "None" # son type hints. No crean los atributos; solamente indican qué tipo esperamos.
+        # data: str
+        # next: "None" # son type hints. No crean los atributos; solamente indican qué tipo esperamos.
 
         def __init__(self, data, next=None): # 1. En el constructor, self representa el nodo actual específico que se está creando. Si hacemos ticket_1 = Node("A001")
                 self.data = data                                                          # Durante ese __init__  Self → ticket_1, data → "A001", next → None
@@ -10,7 +10,7 @@ class Node: # Aquí estamos creando nuestro propio tipo de objeto llamado Node
 
 
 class Queue:
-        head: Node  # TypeHint, esperamos que head sea un Node.
+        # head: Node |  # TypeHint, esperamos que head sea un Node.
 
         def __init__(self, head): # recibe el primer nodo de la fila. Pero este self es un metodo que representa la instancia completa de Queue, osea self → el Queue completo
                 self.head = head # → Primer nodo de la fila o el primer Node de esa Queue

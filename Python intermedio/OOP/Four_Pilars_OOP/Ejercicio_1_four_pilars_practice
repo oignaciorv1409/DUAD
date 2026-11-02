@@ -1,0 +1,43 @@
+class BankAccount:
+        def __init__(self, balance=0):
+                self._balance = balance
+
+        def deposit(self, amount):
+                if amount > 0:
+                        self._balance += amount
+                        print(f"Deposited: ${amount}. New balance: ${self._balance}.")
+
+        def withdraw(self, amount):
+                if 0 < amount <= self._balance:
+                        self._balance -= amount
+                        print(f"Withdrew: ${amount}. New balance: ${self._balance}.")
+                else:
+                        print("Insufficient funds or invalid withdrawal amount.")
+
+class SavingsAccount(BankAccount):
+        def __init__(self, balance, minimum_balance):
+                super().__init__(balance) # Call the constructor of the parent class (BankAccount) to initialize the balance of the son class (SavingsAccount)
+                self.minimum_balance = minimum_balance
+
+        def withdraw(self, amount):
+                if self._balance - amount >= self.minimum_balance:
+                        super().withdraw(amount)  # Call the withdraw method of the parent class (BankAccount)
+                else:
+                        raise ValueError(f"Cannot withdraw ${amount}. Minimum balance requirement of ${self.minimum_balance} not met.")
+
+
+# account = BankAccount(1000)
+# |account.deposit(500)  # Deposited: $500. New balance: $1500
+
+# account.withdraw(200)  # Withdrew: $200. New balance: $1300
+# print(account._balance)
+
+savings_account = SavingsAccount(1000, 300)
+print(savings_account._balance)  # 1000
+print(savings_account.minimum_balance)  # 300
+
+savings_account.withdraw(500)  
+print(savings_account._balance)  # 500
+
+savings_account.withdraw(250)  # Cannot withdraw $250. Minimum balance requirement of $300 not met.
+print(savings_account._balance)

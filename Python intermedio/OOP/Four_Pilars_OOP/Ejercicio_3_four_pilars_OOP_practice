@@ -1,0 +1,37 @@
+class Sale:
+        def __init__(self, subtotal):
+                self.subtotal = subtotal
+
+
+class DiscountMixin:
+        def apply_discount(self, amount, percentage):
+                discount = amount * (percentage / 100)
+                return amount - discount
+
+
+class TaxMixin:
+        def apply_tax(self, amount, tax_rate):
+                tax = amount * (tax_rate / 100)
+                return amount + tax
+
+
+class ReceiptMixin:
+        def print_receipt(self, total):
+                print("-" * 30)
+                print(f"TOTAL: ${total:.2f}")
+                print("-" * 30)
+
+
+class POSSale(Sale, DiscountMixin, TaxMixin, ReceiptMixin):
+        pass
+
+sale = POSSale(100)
+print(f"Subtotal: ${sale.subtotal:.2f}")
+
+after_discount = sale.apply_discount(sale.subtotal, 10)  # Apply a 10% discount
+print(f"After Discount: ${after_discount:.2f}")
+
+after_tax = sale.apply_tax(after_discount, 13)  # Apply a 13% tax
+print(f"After Tax: ${after_tax:.2f}")
+
+sale.print_receipt(after_tax) 
